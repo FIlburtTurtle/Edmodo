@@ -1,1 +1,0 @@
-# Foundation Compass Template
