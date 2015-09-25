@@ -19,6 +19,16 @@
     background-color: #ccc;
 }
 
+button{
+	outline:none;
+}
+
+.unselectable{
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none; 
+}
 
 .panel{
 	box-shadow:3px 3px 3px 0 rgba(56,61,72,0.09);

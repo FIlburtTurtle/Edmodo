@@ -14,4 +14,3 @@ edmodo.directive('listpanel',['$window', function($window){
 		}
 	}
 }]);
-

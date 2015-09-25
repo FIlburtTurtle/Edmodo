@@ -1,25 +1,37 @@
 <div class="mainWrapper row">
 
-	<div class="small-12 medium-3 columns animated fadeInLeft">
+	<div class="small-12 medium-3 columns animated fadeInLeft" style="z-index:100">
 		<listpanel max-percent='.85' paneltitle="'Assignments'" list="[12,12,12,12,12,12,12,12,12,12,12,12]"></listpanel>
 	</div>
 
 	<div class="small-12 medium-9 columns animated fadeInRight tab-table">
 
-		<div class="small-12 columns button-row">
-			<button>Assignment</button>
-			<button>Submissions</button>
+		<div class="row">
+			<div class="small-8 columns">
+				<p> </p>
+			</div>
+			<div class="small-4 right columns end unselectable">
+				<i class="fa direction-icon fa-th"></i>
+				<i class="fa direction-icon fa-th-list"></i>
+				<i class="fa direction-icon fa-angle-left unselectable" ng-click="rotate(-1)" ></i>
+				<i class="fa direction-icon fa-angle-right unselectable" ng-click="rotate(1)" ></i>
+			</div>
 		</div>
 
+		<carousel3d rotate="rotate" carousel="[1,2,3,4,5,6,7,8,9]" percent-height='1'></carousel3d>
+
 		<div class="small-12 columns tab-content-panel">
-			<!-- Main Assignments panel -->
-			<div class="panel" ng-show="assignment_content_show">
-				
-			</div>
-			<!-- Main Submissions panel -->
-			<div class="panel" ng-hide="assignment_content_show">
-				
-			</div>
+			<carosel ng-show="stuff">
+				<pane title="Hello">
+					<h4>Hello</h4>
+					<p>Lorem ipsum dolor sit amet</p>
+				</pane>
+				<pane title="World">
+					<h4>World</h4>
+					<em>Mauris elementum elementum enim at suscipit.</em>
+					<p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+				</pane>
+			</carosel>
 		</div>
 
 	</div>

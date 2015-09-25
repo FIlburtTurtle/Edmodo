@@ -1,5 +1,5 @@
 
-var edmodo = angular.module('edmodo', ['ngRoute', 'EdmodoAngular']);
+var edmodo = angular.module('edmodo', ['ngRoute', 'ngTouch', 'EdmodoAngular', 'Carousel3D']);
 
 //Config factory to hold application wide settings
 edmodo.factory('config', ['$http', function($http){
