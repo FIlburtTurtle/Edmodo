@@ -1,1 +1,27 @@
-<div>Main</div>
+<div class="mainWrapper row">
+
+	<div class="small-12 medium-3 columns animated fadeInLeft">
+		<listpanel title="'Assignments'" list="[12,12,12,12,12,12,12,12]"></listpanel>
+	</div>
+
+	<div class="small-12 medium-9 columns animated fadeInRight tab-table">
+
+		<div class="small-12 columns button-row">
+			<button>Assignment</button>
+			<button>Submissions</button>
+		</div>
+
+		<div class="small-12 columns tab-content-panel">
+			<!-- Main Assignments panel -->
+			<div class="panel" ng-show="assignment_content_show">
+				
+			</div>
+			<!-- Main Submissions panel -->
+			<div class="panel" ng-hide="assignment_content_show">
+				
+			</div>
+		</div>
+
+	</div>
+		
+</div>

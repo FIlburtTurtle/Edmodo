@@ -6,13 +6,13 @@ edmodo.config(['$routeProvider', '$locationProvider',
 
 		.when('/',
 		{
-			controller : 'mainController.js'
+			controller : 'mainController',
 			templateUrl:'/partials/main.html'
 		})
 
 		.otherwise(
 		{
-			controller : 'mainController.js'
+			controller : 'mainController',
 			templateUrl: '/partials/main.html'
     	});
 

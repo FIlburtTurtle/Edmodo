@@ -1,5 +1,5 @@
 
-var edmodo = angular.module('edmodo', ['ngRoute']);
+var edmodo = angular.module('edmodo', ['ngRoute', 'EdmodoAngular']);
 
 //Config factory to hold application wide settings
 edmodo.factory('config', ['$http', function($http){
