@@ -7,13 +7,17 @@ edmodo.config(['$routeProvider', '$locationProvider',
 		.when('/',
 		{
 			controller : 'mainController',
-			templateUrl:'/partials/main.html'
+			templateUrl:'/partials/main.html',
+			reloadOnSearch: false
 		})
 
 		.otherwise(
 		{
 			controller : 'mainController',
-			templateUrl: '/partials/main.html'
+			templateUrl: '/partials/main.html',
+			reloadOnSearch: false
     	});
+
+    $locationProvider.html5Mode(true);
 
 }]);

@@ -4,7 +4,9 @@ edmodo.directive('listpanel',['$window', function($window){
 		restrict : 'E',
 		scope : {
 			list : '=',
-			paneltitle : '='
+			paneltitle : '=',
+			rotate : '=',
+			rotateto : '='
 		},
 		templateUrl : '/partials/listPanel.html',
 		link: function($scope, $element, attr){

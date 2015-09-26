@@ -1,14 +1,22 @@
 <!-- Panel Title -->
-<div class="panel panel-title">
-	<h4>{{paneltitle}}</h4>
+<div class="panel panel-title row">
+	<div class="small-6 columns">
+		<h4>{{paneltitle}}</h4>
+	</div>
+	<div class="small-6 columns align-right">
+		<i class="fa direction-icon fa-plus unselectable" style="font-size:18px;text-align:left"> </i>
+		<i class="fa direction-icon fa-angle-left unselectable" ng-click="rotate(-1)" ></i>
+		<i class="fa direction-icon fa-angle-right unselectable" ng-click="rotate(1)" ></i>
+	</div>
 </div>
 <!-- Sidebar panel -->
-<div id="sidebar" class="panel clearfix sidebar scrollable">
+<div id="sidebar" class="panel clearfix sidebar scrollable row">
 	<!-- Assignements row -->
 	<div class="assignment animated flipInX small-12 columns" 
-		 ng-repeat="n in list track by $index">
-		<h5 class="title">Planetary Spike!</h5>
-		<p class="due-date">due on <span>Sunday sepember 5</span></p>
+		 ng-repeat="(index, assigment) in list track by $index" 
+		 ng-click="rotateto(index)"
+		 ng-if="!assigment.new_tab">
+		<h5 class="title">{{assigment.title}}</h5>
+		<p class="due-date">due on <span>{{assignment.due_at | parseDate}}</span></p>
 	</div>
-
 </div>

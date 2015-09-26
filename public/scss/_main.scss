@@ -2,6 +2,12 @@
 	padding:20px;
 }
 
+body{
+	height:100%;
+	width:100%;
+	overflow:hidden;
+}
+
 //Scrollbar
 .scrollable::-webkit-scrollbar-track
 {
@@ -23,6 +29,13 @@ button{
 	outline:none;
 }
 
+.align-right{
+	text-align:right;
+}
+.align-center{
+	text-align:center;
+}
+
 .unselectable{
 	-moz-user-select: none; 
 	-khtml-user-select: none; 
@@ -30,8 +43,31 @@ button{
 	-o-user-select: none; 
 }
 
+.logo{
+    height: 122px;
+    margin-left: -27px;
+    margin-top: -28px;
+    margin-bottom: -15px;
+}
+
+.loadingScreen{
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right : 0;
+	position: absolute;
+	background-color:$white;
+	text-align:center;
+	padding-top:20%;
+	z-index:10000;
+}
+
+.goToBack{
+	z-index:-10;
+}
+
 .panel{
-	box-shadow:3px 3px 3px 0 rgba(56,61,72,0.09);
+	box-shadow:6px 9px 141px 6px rgba(8, 8, 10, 0.1);
 	border-radius: 3px;
 	h4{
 		font-family: 'Slabo 27px', serif;
@@ -45,7 +81,7 @@ button{
 	background-color: $grey;
 	margin-bottom:0px;
 	border-radius:3px 3px 0 0;
-	padding: rem-calc(15) rem-calc(20);
+	padding: rem-calc(10) rem-calc(20);
 }
 
 .sidebar{

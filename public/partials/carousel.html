@@ -1,6 +1,84 @@
 <section class="container">
 	<div id="carousel">
-		<figure ng-repeat="pane in carousel track by $index" ng-swipe-right="rotate(-1)" ng-swipe-left="rotate(1)">
+		<figure ng-class="{hideBackface : hideBackface}" 
+				class="scrollable"
+				ng-repeat="pane in carousel track by $index">
+
+			<!-- Assignment pane -->
+			<div ng-if="!pane.new_tab">
+				<!-- Toggle Row -->
+				<div class="row">
+					<div class="small-12 columns">
+						<p>
+							<a href=" " ng-click="pane.submissionView = false"> assignment</a> | 
+							<a href=" " ng-click="pane.submissionView = true; showSubmissions(pane.id)">submissions</a>
+						</p>
+						<hr style="margin:10px 0" />
+					</div>
+				</div>
+				<!-- Assignment Info -->
+				<div class="row" ng-hide="pane.submissionView">
+					<div class="small-6 columns" style="padding-right:20px">
+						<p><u>Due on : {{pane.due_as | parseDate}}</u></p>
+						<h2>{{pane.title}}</h2>
+						<p>{{pane.description}}</p>
+					</div>
+					<div class="small-6 columns">
+						<div class="panel pane-info">
+							<p>Created by : </p>
+							<h5>
+								 <img ng-src="{{pane.creator.avatars.small}}" title="{{pane.creator.first_name}} {{pane.creator.last_name}}"> {{pane.creator.first_name}} {{pane.creator.last_name}} 
+							</h5>
+							<hr  />
+							<p ng-if="pane.recipients.groups && pane.recipients.groups[0]">Group : {{pane.recipients.groups[0].title}}</p>
+							<p>Created on : {{pane.created_at | parseStamp}} </p>
+							<p>Turn in count : {{pane.turn_in_count || 0}}</p>
+							<p ng-if="pane.lock_after_due">Lock after due : yes</p>
+							<p ng-if="!pane.lock_after_due">Lock after due : no</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Submission View -->
+				<div ng-if="pane.submissionView && !submissionLoading">
+					<div class="submission row" 
+						ng-click="submission.open = !submission.open" 
+						ng-repeat="submission in submissions" 
+						ng-init="submission.open = false">
+
+						<div class="person small-4 columns">
+							<p class="username">{{submission.creator.username}}</p>
+							<p class="name"><img ng-src="{{submission.creator.avatars.small}}"> {{submission.creator.first_name}} {{submission.creator.last_name}}</p>
+						</div>
+						<div class="small-8 columns">
+							<p class="submited-at">
+								<b>Submitted at :</b> {{submission.submitted_at | parseStamp}}
+								<i ng-hide="submission.open" class="fa fa-angle-down right"></i>
+								<i ng-show="submission.open" class="fa fa-angle-up right"></i>
+							</p>
+						</div>
+						<div class="submission-content row fadeIn animated" ng-if="submission.open">
+							<div class="content small-12 columns"  class="fadeIn animated">
+								<p>{{submission.content}}</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div ng-if="submissionLoading" class="align-center row">
+					<br  />
+					<i class="fa fa-circle-o-notch fa-spin center"></i>
+				</div>
+			</div>
+
+			<!-- Placeholder Pane -->
+			<div class="small-12 columns" ng-if="pane.new_tab">
+				<div ng-if="carousel.length <= 3" class="center" style="text-align:center">
+					<br  />
+					<h1 class="center">No assignments...</h1> 
+					<button class="center">Create one!</button>
+				</div>
+			</div>
 		</figure>
 	</div>
 </section>
