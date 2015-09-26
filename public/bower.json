@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": "true",
   "dependencies": {
+    "angular-datepicker": "~1.0.16",
     "angular-route": "~1.4.6",
     "AngularJS": "angular-latest#~1.4.6",
     "foundation": "zurb/bower-foundation",

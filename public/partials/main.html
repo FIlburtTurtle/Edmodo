@@ -2,7 +2,13 @@
 
 	<div class="small-12 medium-3 columns animated fadeInLeft" style="z-index:100">
 		<img class="logo" src="/img/edmodo_logo.png">
-		<listpanel rotateto="rotateto" rotate="rotate" max-percent='.7' paneltitle="'Assignments'" list="assignments"></listpanel>
+		<listpanel rotateto="rotateto" 
+					rotate="rotate" 
+					max-percent='.7' 
+					modal='modal' 
+					paneltitle="'Assignments'" 
+					list="assignments">
+		</listpanel>
 	</div>
 
 	<div class="small-12 medium-9 columns animated fadeInRight tab-table" >
@@ -11,7 +17,8 @@
 					rotateto="rotateto" 
 					carousel="assignments" 
 					toggle-axis="toggleAxis" 
-					percent-height='.8'>
+					show-submissions="showSubmissions"
+					percent-height='.75'>
 		</carousel3d>
 
 	</div>
@@ -21,4 +28,54 @@
 		<p>loading...</p>
 	</div>
 		
+</div>
+
+<div class="backdrop" ng-show="modal"></div>
+<div class="row" ng-show="modal" style="position:absolute;top:5%;z-index:2000">
+	<i class="fa fa-close modal-close" ng-click="modal = false"></i>
+	<div class="small-8 small-offset-2 medium-4 medium-offset-4 columns">
+		<div class="modal panel">
+			<div class="row">
+
+			    <div class="small-12 end columns">
+			      	<div class="row">
+						<h2 class="align-center">Create a New Assignment</h2>
+						<hr  />
+			        	<div class="small-3 columns">
+			          		<label for="right-label" class="right inline">Title</label>
+			        	</div>
+			        	<div class="small-9 columns">
+			          		<input type="text" id="right-label" ng-model="title" placeholder="Inline Text Input">
+			        	</div>
+			      	</div>
+			    </div>
+
+			    <div class="small-12 end columns">
+			      	<div class="row">
+			        	<div class="small-3 columns">
+			          		<label for="right-label" class="right inline">Due Date</label>
+			        	</div>
+			        	<div class="small-9 columns">
+			          		<input type="date" min="{{today}}" ng-model="date" id="right-label" placeholder="Inline Text Input">
+			        	</div>
+			      	</div>
+			    </div>
+
+			    <div class="small-12 end columns">
+			      	<div class="row">
+			        	<div class="small-3 columns">
+			          		<label for="right-label" class="right inline">Description</label>
+			        	</div>
+			        	<div class="small-9 columns">
+			          		<textarea type="text" id="right-label" ng-model="description" placeholder="Inline Text Input"></textarea>
+			        	</div>
+			      	</div>
+			    </div>
+
+			    <button class="right" ng-click="addAssignment()" style="background-color:#008CBA;color:white; border-radius:10px">Create!</button>
+
+			</div>
+
+		</div>
+	</div>
 </div>

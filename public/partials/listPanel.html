@@ -3,8 +3,8 @@
 	<div class="small-6 columns">
 		<h4>{{paneltitle}}</h4>
 	</div>
-	<div class="small-6 columns align-right">
-		<i class="fa direction-icon fa-plus unselectable" style="font-size:18px;text-align:left"> </i>
+	<div class="small-6 columns align-right" ng-init="modal = false">
+		<i class="fa direction-icon fa-plus unselectable" ng-click="modal = !modal" style="font-size:18px;text-align:left"> </i>
 		<i class="fa direction-icon fa-angle-left unselectable" ng-click="rotate(-1)" ></i>
 		<i class="fa direction-icon fa-angle-right unselectable" ng-click="rotate(1)" ></i>
 	</div>

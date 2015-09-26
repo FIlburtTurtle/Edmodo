@@ -74,7 +74,8 @@ Carousel3D.directive('carousel3d', [ '$window', '$location', 'builder', '$docume
 			carousel: '=',
 			rotate: '=',
 			rotateto: '=',
-			toggleAxis: '='
+			toggleAxis: '=',
+			showSubmissions: '=',
 		},
 		link: function($scope, element, attrs) {
 
@@ -84,15 +85,6 @@ Carousel3D.directive('carousel3d', [ '$window', '$location', 'builder', '$docume
 			$scope.current_index = 0;
 			angular.element(container).css('height', $window.innerHeight * attrs.percentHeight || 0.8)
 
-			$scope.findIndex = function(id){
-				for (var i = 0; i < $scope.carousel.length; i++) {
-					if($scope.carousel[i].assignment_id = id){
-						console.log($scope.carousel[i]);
-						return $scope.carousel[i].$index;
-					}
-				};
-			}
-
 			$scope.closeAllAssigments = function(){
 				for (var i = 0; i < $scope.carousel.length; i++) {
 					$scope.carousel[i].submissionView = false;
@@ -100,13 +92,11 @@ Carousel3D.directive('carousel3d', [ '$window', '$location', 'builder', '$docume
 				};
 			}
 
-			$scope.changePath = function(assignment_id, submissions){
+			$scope.changePath = function(assignment_id){
 				if (assignment_id) {
 					$location.search('assignment_id', assignment_id)
-					$location.search('submissions', submissions)
 				} else {
 					$location.search('assignment_id', null)
-					$location.search('submissions', submissions)
 				}
 			}
 
@@ -118,10 +108,9 @@ Carousel3D.directive('carousel3d', [ '$window', '$location', 'builder', '$docume
 				carousel.rotation += carousel.theta * increment * -1;
 				carousel.transform();
 				$scope.closeAllAssigments()
-				var pane =$scope.carousel[$scope.current_index]
+				var pane = $scope.carousel[$scope.current_index]
 				if (pane && pane.id) {
-					$scope.changePath(pane.id, pane.submissionView)
-					console.log(pane.id, pane.submissionView, $scope.current_index)
+					$scope.changePath(pane.id)
 				} else {
 					$scope.changePath(null)
 				}
@@ -142,14 +131,12 @@ Carousel3D.directive('carousel3d', [ '$window', '$location', 'builder', '$docume
 					$scope.current_index = 0;
 				};
 
-				var pane =$scope.carousel[$scope.current_index]
+				var pane = $scope.carousel[$scope.current_index]
 				if (pane && pane.id) {
-					$scope.changePath(pane.id, pane.submissionView)
-					console.log(pane.id, pane.submissionView, $scope.current_index)
+					$scope.changePath(pane.id)
 				} else {
 					$scope.changePath(null)
 				}
-
 				$scope.closeAllAssigments()
 				carousel.rotation += carousel.theta * increment * -1;
 				carousel.transform();
@@ -160,8 +147,8 @@ Carousel3D.directive('carousel3d', [ '$window', '$location', 'builder', '$docume
 				carousel.modify();
 			}
 
-			$scope.showSubmissions = function(assignment_id, page, per_page){
-				$scope.submissionLoading = true;
+			$scope.showSubmissions = function(assignment_id, page, per_page, loading){
+				$scope.submissionLoading = loading;
 				edmodoAPI.getSubmissions({assignment_id : assignment_id, page : 0, per_page : 100 }, function(result){
 					$scope.submissions = result;
 					$scope.submissionLoading = false;
