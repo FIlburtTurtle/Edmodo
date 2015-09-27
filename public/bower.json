@@ -8,6 +8,8 @@
     "AngularJS": "angular-latest#~1.4.6",
     "foundation": "zurb/bower-foundation",
     "modernizr": "~3.0.0",
-    "moment": "~2.10.6"
+    "moment": "~2.10.6",
+    "angular-touch": "~1.4.6",
+    "ngSweetAlert": "angular-sweetalert#~1.1.0"
   }
 }
