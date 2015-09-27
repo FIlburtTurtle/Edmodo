@@ -12254,9 +12254,13 @@ button {
   box-shadow: 0px 16px 31px 6px rgba(8, 8, 10, 0.1);
   overflow-y: scroll;
   overflow-x: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
 }
 
-/* line 51, ../scss/_carosel.scss */
+/* line 55, ../scss/_carosel.scss */
 .hideBackface {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -12264,32 +12268,32 @@ button {
   -o-backface-visibility: hidden;
 }
 
-/* line 58, ../scss/_carosel.scss */
+/* line 62, ../scss/_carosel.scss */
 .pane-info {
   background-color: #DEDEDE;
   padding: 10px;
   box-shadow: none;
 }
-/* line 62, ../scss/_carosel.scss */
+/* line 66, ../scss/_carosel.scss */
 .pane-info img {
   margin-bottom: 0px;
   border-radius: 10px;
   margin-right: 10px;
 }
-/* line 67, ../scss/_carosel.scss */
+/* line 71, ../scss/_carosel.scss */
 .pane-info h5 {
   margin-bottom: 0px;
 }
-/* line 70, ../scss/_carosel.scss */
+/* line 74, ../scss/_carosel.scss */
 .pane-info hr {
   border-color: #777777;
 }
-/* line 73, ../scss/_carosel.scss */
+/* line 77, ../scss/_carosel.scss */
 .pane-info p {
   color: #666;
 }
 
-/* line 78, ../scss/_carosel.scss */
+/* line 82, ../scss/_carosel.scss */
 .ready #carousel figure {
   -webkit-transition: opacity 1s, -webkit-transform 1s;
   -moz-transition: opacity 1s, -moz-transform 1s;
@@ -12297,7 +12301,7 @@ button {
   transition: opacity 1s, transform 1s;
 }
 
-/* line 85, ../scss/_carosel.scss */
+/* line 89, ../scss/_carosel.scss */
 .direction-icon {
   cursor: pointer;
   font-size: 22px;
@@ -12305,47 +12309,47 @@ button {
   position: relative;
   color: #FFFFFF;
 }
-/* line 91, ../scss/_carosel.scss */
+/* line 95, ../scss/_carosel.scss */
 .direction-icon:hover {
   color: #F9F9F9;
 }
 
-/* line 96, ../scss/_carosel.scss */
+/* line 100, ../scss/_carosel.scss */
 .fa-th {
   font-size: 33px;
 }
 
-/* line 99, ../scss/_carosel.scss */
+/* line 103, ../scss/_carosel.scss */
 .fa-th-list {
   font-size: 33px;
 }
 
-/* line 103, ../scss/_carosel.scss */
+/* line 107, ../scss/_carosel.scss */
 .submission {
   border-bottom: solid 1px #ddd;
   padding: 10px;
 }
-/* line 106, ../scss/_carosel.scss */
+/* line 110, ../scss/_carosel.scss */
 .submission .username {
   font-variant: small-caps;
   font-size: 14px;
   font-weight: bold;
 }
-/* line 111, ../scss/_carosel.scss */
+/* line 115, ../scss/_carosel.scss */
 .submission .submited-at {
   padding-top: 32px;
 }
-/* line 117, ../scss/_carosel.scss */
+/* line 121, ../scss/_carosel.scss */
 .submission .fa {
   font-size: 33px;
 }
-/* line 120, ../scss/_carosel.scss */
+/* line 124, ../scss/_carosel.scss */
 .submission img {
   margin-right: 10px;
   border-radius: 10px;
 }
 
-/* line 127, ../scss/_carosel.scss */
+/* line 131, ../scss/_carosel.scss */
 .submission-content p {
   padding-top: 10px;
 }
